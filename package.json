@@ -1,0 +1,28 @@
+{
+  "name": "firebase-typescript-rollup",
+  "version": "0.1.0",
+  "description": "An example of using Firebase, TypeScript, and Rollup for smaller bundles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Firebase",
+    "TypeScript",
+    "Rollup"
+  ],
+  "author": "David East",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "https://www.gstatic.com/firebasejs/staging/3.6.6-rc.2/firebase.tgz",
+    "gzip-size": "^3.0.0",
+    "rxjs": "^5.0.3"
+  },
+  "devDependencies": {
+    "gzip-size": "^3.0.0",
+    "pretty-size": "^1.0.7",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0"
+  }
+}
