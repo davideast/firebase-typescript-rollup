@@ -1,7 +1,8 @@
 :root {
-  --fir-font-article: "adobe-caslon-pro",sans-serif;
+  --fir-font-article: "adobe-garamond-pro",sans-serif;
   --fir-font-header: "foco", serif;
-  --fir-blue-twitter: rgb(85,172,238);
-  --fir-blue-twitter-alpha: rgba(85,172,238, 0.5);
-  --fir-color-grey: rgba(0,0,0, 0.40)
+  --fir-blue-twitter-alpha: rgba(85,172,238, 0.6);
+  --fir-color-grey: rgba(0,0,0, 0.40);
+  --prism-bg: #303030;
+  --prism-text: #f0f0f0;
 }

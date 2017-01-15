@@ -9,8 +9,8 @@ const cssFiles = [
   './src/css/layout.css',
   './src/css/state.css',
   './src/css/clickcircle.css',
-  './src/css/imagecover.css',
-  './src/css/authorfigure.css'
+  './src/css/imagefigure.css',
+  './src/css/codebox.css',
 ];
 const cssContent = cssFiles.map(file => fs.readFileSync(file).toString('utf8'));
 const cssCombined = cssContent.join('\n');

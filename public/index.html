@@ -8,11 +8,12 @@
 
     <style>
 :root {
-  --fir-font-article: "adobe-caslon-pro",sans-serif;
+  --fir-font-article: "adobe-garamond-pro",sans-serif;
   --fir-font-header: "foco", serif;
-  --fir-blue-twitter: rgb(85,172,238);
-  --fir-blue-twitter-alpha: rgba(85,172,238, 0.5);
-  --fir-color-grey: rgba(0,0,0, 0.40)
+  --fir-blue-twitter-alpha: rgba(85,172,238, 0.6);
+  --fir-color-grey: rgba(0,0,0, 0.40);
+  --prism-bg: #303030;
+  --prism-text: #f0f0f0;
 }
 
 body {
@@ -20,21 +21,32 @@ body {
   margin: 0;
 }
 h1 {
-  font-size: 3em;
+  font-size: 6vh;
 }
 h1, h2, h3 {
   font-family: var(--fir-font-header);
   margin: 0;
 }
 article {
-  font-size: 22px;
+  font-size: 24px;
+  line-height: 48px;
 }
 .fir-grid {
-  max-width: 720px;
+  max-width: 740px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 40px;
+  padding: 0 20px;
 }
+
+.fir-grid p, section, article {
+  margin: 40px 0;
+}
+
+.fir-grid section h3 + p, .fir-article-content-top {
+  margin: 0px 0px 40px 0px;
+}
+
 .wf-loading {
   visibility: hidden
 }
@@ -47,17 +59,35 @@ article {
   border-radius: 100px;
   cursor: pointer;
 }
-.fir-imagecover {
+.fir-image-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  text-decoration: none;
+}
+
+.fir-image-figure .caption, .fir-image-figure figcaption {
+  padding-left: 15px;
+}
+
+.fir-image-figure .fig-author-figure-title {
+  color: var(--fir-color-grey);
+  font-family: var(--fir-font-header);
+  margin-top: 2px;
+}
+
+.fir-imageover {
   position: relative;
   display: flex;
 }
 
-.fir-imagecover:hover .fir-imageover-color {
-  background-size: contain;
-  background-color: rgba(85,172,238, 0.6);
+.fir-image-figure:hover .fir-imageover-color, .fir-imagecover:hover .fir-imageover-color {
+  background-color: var(--fir-blue-twitter-alpha);
 }
 
-.fir-imagecover:hover .fir-imageover-image {
+.fir-image-figure:hover .fir-imageover-image, .fir-imagecover:hover .fir-imageover-image {
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
@@ -78,22 +108,14 @@ article {
   top: 0;
   opacity: 0;
 }
-.fir-author-figure {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  position: relative;
+.fir-codebox {
+  background: var(--prism-bg);
+  color: var(--prism-text);
+  padding: 20px;
 }
 
-.fir-author-figure figcaption {
-  padding-left: 15px;
-}
-
-.fir-author-figure .fig-author-figure-title {
-  color: var(--fir-color-grey);
-  font-family: var(--fir-font-header);
-  margin-top: 2px;
+.fir-codebox code {
+  font-family: "hack", Consolas, Monaco, monospace;
 }
 </style>
 
@@ -102,43 +124,65 @@ article {
     <div class="fir-grid">
       <div class="fir-article-title">
 
-        <figure class="fir-author-figure">
+        <figure class="fir-image-figure">
 
-          <div class="fir-imagecover">
-            <img class="fir-author-image fir-clickcircle" src="de.jpg" alt="David East - Author">
-            <a class="fir-imageover-color" rel="noopener" target="_blank" href="https://twitter.com/_davideast"></a>
+          <a class="fir-imageover" rel="noopener" target="_blank" href="https://twitter.com/_davideast">
+            <img class="fir-author-image fir-clickcircle" src="de-sm.jpg" alt="David East - Author">
+            <div class="fir-imageover-color"></div>
             <img class="fir-imageover-image fir-clickcircle" src="twitter-logo.png" />
-          </div>
+          </a>
 
           <figcaption>
             <div class="fig-author-figure-title">David East</div>
-            <div class="fig-author-figure-title">Engineer at Google working on Firebase.</div>
-            <div class="fig-author-figure-title">7m read &#8212; 1/15/2017</div>
+            <div class="fig-author-figure-title">Engineer at Google on Firebase.</div>
+            <div class="fig-author-figure-title">Jan. 16th, 2017</div>
           </figcaption>
         </figure>
 
-        <h1>Firebase & Rollup</h1>
       </div>
 
       <article class="fir-article">
-        <p>
-          I've worked at Firebase since April 2014. During that time I've been
-          fortunate to see this small service that was <em>"just used for toy apps"</em>
-          turn into something used by Fortune 500 companies around the world.
-        </p>
-        <p>
-          Firebase gives developers the ability to develop
-          <strong>without a server</strong>. You can synchronize data in
-          realtime with the Firebase Database, authenticate users to social
-          media sites with Firebase Authentication, upload and serve binary
-          files with Firebase Storage, host static content with Firebase
-          Hosting, and most recently, send web push notifications with
-          Firebase Cloud Messaging.
-        </p>
-        <p>
-          However, these features do not come without a cost. Each feature is
-          a complex snowflake that comes with a cost in kilobytes.
-        </p>
+        <section class="fir-article-content">
+          <h1>Firebase & Rollup</h1>
+          <!--
+            Highlights section
+            - Topics covered
+            - Avg minute read
+            - Github/Demo
+          -->
+          <p>
+            I've worked at Firebase since April 2014. During that time I've been
+            fortunate to see this small service that was <em>"just used for toy apps"</em>
+            turn into something used by Fortune 500 companies around the world.
+          </p>
+          <p>
+            Firebase gives developers the ability to develop
+            <strong>without a server</strong>. You can synchronize data in
+            realtime with the Firebase Database, authenticate users to social
+            media sites with Firebase Authentication, upload and serve binary
+            files with Firebase Storage, host static content with Firebase
+            Hosting, and most recently, send web push notifications with
+            Firebase Cloud Messaging.
+          </p>
+          <p>
+            However, these features do not come without a cost. Each feature is
+            a complex snowflake that comes with a cost in kilobytes.
+          </p>
+          <p>
+            The Firebase JavaScript SDK is a total of <strong>92kb</strong>. This
+            is a lot of JavaScript to include all at once. Fortunately, the library
+            is designed for modular importing.
+          </p>
+        </section>
+        <section class="fir-article-content">
+          <h3>Rollup</h3>
+          <p class="fir-article-content-top">
+            Rollup makes bundling JavaScript real easy.
+          </p>
+<pre class="fir-codebox">
+<code class="language-javascript">var i = 0;
+var k = 1;</code></pre>
+        </section>
       </article>
     </div>
   </body>

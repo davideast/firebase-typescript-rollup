@@ -13,43 +13,65 @@
     <div class="fir-grid">
       <div class="fir-article-title">
 
-        <figure class="fir-author-figure">
+        <figure class="fir-image-figure">
 
-          <div class="fir-imagecover">
-            <img class="fir-author-image fir-clickcircle" src="de.jpg" alt="David East - Author">
-            <a class="fir-imageover-color" rel="noopener" target="_blank" href="https://twitter.com/_davideast"></a>
+          <a class="fir-imageover" rel="noopener" target="_blank" href="https://twitter.com/_davideast">
+            <img class="fir-author-image fir-clickcircle" src="de-sm.jpg" alt="David East - Author">
+            <div class="fir-imageover-color"></div>
             <img class="fir-imageover-image fir-clickcircle" src="twitter-logo.png" />
-          </div>
+          </a>
 
           <figcaption>
             <div class="fig-author-figure-title">David East</div>
-            <div class="fig-author-figure-title">Engineer at Google working on Firebase.</div>
-            <div class="fig-author-figure-title">7m read &#8212; 1/15/2017</div>
+            <div class="fig-author-figure-title">Engineer at Google on Firebase.</div>
+            <div class="fig-author-figure-title">Jan. 16th, 2017</div>
           </figcaption>
         </figure>
 
-        <h1>Firebase & Rollup</h1>
       </div>
 
       <article class="fir-article">
-        <p>
-          I've worked at Firebase since April 2014. During that time I've been
-          fortunate to see this small service that was <em>"just used for toy apps"</em>
-          turn into something used by Fortune 500 companies around the world.
-        </p>
-        <p>
-          Firebase gives developers the ability to develop
-          <strong>without a server</strong>. You can synchronize data in
-          realtime with the Firebase Database, authenticate users to social
-          media sites with Firebase Authentication, upload and serve binary
-          files with Firebase Storage, host static content with Firebase
-          Hosting, and most recently, send web push notifications with
-          Firebase Cloud Messaging.
-        </p>
-        <p>
-          However, these features do not come without a cost. Each feature is
-          a complex snowflake that comes with a cost in kilobytes.
-        </p>
+        <section class="fir-article-content">
+          <h1>Firebase & Rollup</h1>
+          <!--
+            Highlights section
+            - Topics covered
+            - Avg minute read
+            - Github/Demo
+          -->
+          <p>
+            I've worked at Firebase since April 2014. During that time I've been
+            fortunate to see this small service that was <em>"just used for toy apps"</em>
+            turn into something used by Fortune 500 companies around the world.
+          </p>
+          <p>
+            Firebase gives developers the ability to develop
+            <strong>without a server</strong>. You can synchronize data in
+            realtime with the Firebase Database, authenticate users to social
+            media sites with Firebase Authentication, upload and serve binary
+            files with Firebase Storage, host static content with Firebase
+            Hosting, and most recently, send web push notifications with
+            Firebase Cloud Messaging.
+          </p>
+          <p>
+            However, these features do not come without a cost. Each feature is
+            a complex snowflake that comes with a cost in kilobytes.
+          </p>
+          <p>
+            The Firebase JavaScript SDK is a total of <strong>92kb</strong>. This
+            is a lot of JavaScript to include all at once. Fortunately, the library
+            is designed for modular importing.
+          </p>
+        </section>
+        <section class="fir-article-content">
+          <h3>Rollup</h3>
+          <p class="fir-article-content-top">
+            Rollup makes bundling JavaScript real easy.
+          </p>
+<pre class="fir-codebox">
+<code class="language-javascript">var i = 0;
+var k = 1;</code></pre>
+        </section>
       </article>
     </div>
   </body>

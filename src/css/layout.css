@@ -1,6 +1,15 @@
 .fir-grid {
-  max-width: 720px;
+  max-width: 740px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.fir-grid p, section, article {
+  margin: 40px 0;
+}
+
+.fir-grid section h3 + p, .fir-article-content-top {
+  margin: 0px 0px 40px 0px;
 }
