@@ -4,7 +4,9 @@
   "description": "An example of using Firebase, TypeScript, and Rollup for smaller bundles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:rollup": "node rollup.config",
+    "build:site": "node embedcss"
   },
   "keywords": [
     "Firebase",
@@ -14,9 +16,7 @@
   "author": "David East",
   "license": "MIT",
   "dependencies": {
-    "firebase": "https://www.gstatic.com/firebasejs/staging/3.6.6-rc.2/firebase.tgz",
-    "gzip-size": "^3.0.0",
-    "rxjs": "^5.0.3"
+    "firebase": "https://www.gstatic.com/firebasejs/staging/3.6.6-rc.2/firebase.tgz"
   },
   "devDependencies": {
     "gzip-size": "^3.0.0",

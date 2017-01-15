@@ -26,11 +26,11 @@ rollup.rollup({
 
   return bundle.write({
     format: 'umd',
-    dest: 'dist/index.umd.js',
+    dest: 'public/index.js',
     moduleName: 'app'
   });
 }).then(_ => {
-  const file = fs.readFileSync('dist/index.umd.js');
+  const file = fs.readFileSync('public/index.js');
   const bytes = gzipSize.sync(file);
   console.log(`firebase.app & firebase.storage: ${psize(bytes, true)} gzipped`);
 });

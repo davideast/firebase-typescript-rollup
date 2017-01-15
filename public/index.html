@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Firebase & Rollup</title>
+    <script src="https://use.typekit.net/sfq4ecl.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <style>
+:root {
+  --fir-font-article: "adobe-caslon-pro",sans-serif;
+  --fir-font-header: "foco", serif;
+  --fir-blue-twitter: rgb(85,172,238);
+  --fir-blue-twitter-alpha: rgba(85,172,238, 0.5);
+  --fir-color-grey: rgba(0,0,0, 0.40)
+}
+
+body {
+  font-family: var(--fir-font-article);
+  margin: 0;
+}
+h1 {
+  font-size: 3em;
+}
+h1, h2, h3 {
+  font-family: var(--fir-font-header);
+  margin: 0;
+}
+article {
+  font-size: 22px;
+}
+.fir-grid {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+.wf-loading {
+  visibility: hidden
+}
+.visually-hidden {
+  display: none;
+}
+.fir-clickcircle {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.fir-imagecover {
+  position: relative;
+  display: flex;
+}
+
+.fir-imagecover:hover .fir-imageover-color {
+  background-size: contain;
+  background-color: rgba(85,172,238, 0.6);
+}
+
+.fir-imagecover:hover .fir-imageover-image {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fir-imageover-color {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  background: transparent;
+  background-image: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+
+.fir-imageover-image {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+.fir-author-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fir-author-figure figcaption {
+  padding-left: 15px;
+}
+
+.fir-author-figure .fig-author-figure-title {
+  color: var(--fir-color-grey);
+  font-family: var(--fir-font-header);
+  margin-top: 2px;
+}
+</style>
+
+  </head>
+  <body>
+    <div class="fir-grid">
+      <div class="fir-article-title">
+
+        <figure class="fir-author-figure">
+
+          <div class="fir-imagecover">
+            <img class="fir-author-image fir-clickcircle" src="de.jpg" alt="David East - Author">
+            <a class="fir-imageover-color" rel="noopener" target="_blank" href="https://twitter.com/_davideast"></a>
+            <img class="fir-imageover-image fir-clickcircle" src="twitter-logo.png" />
+          </div>
+
+          <figcaption>
+            <div class="fig-author-figure-title">David East</div>
+            <div class="fig-author-figure-title">Engineer at Google working on Firebase.</div>
+            <div class="fig-author-figure-title">7m read &#8212; 1/15/2017</div>
+          </figcaption>
+        </figure>
+
+        <h1>Firebase & Rollup</h1>
+      </div>
+
+      <article class="fir-article">
+        <p>
+          I've worked at Firebase since April 2014. During that time I've been
+          fortunate to see this small service that was <em>"just used for toy apps"</em>
+          turn into something used by Fortune 500 companies around the world.
+        </p>
+        <p>
+          Firebase gives developers the ability to develop
+          <strong>without a server</strong>. You can synchronize data in
+          realtime with the Firebase Database, authenticate users to social
+          media sites with Firebase Authentication, upload and serve binary
+          files with Firebase Storage, host static content with Firebase
+          Hosting, and most recently, send web push notifications with
+          Firebase Cloud Messaging.
+        </p>
+        <p>
+          However, these features do not come without a cost. Each feature is
+          a complex snowflake that comes with a cost in kilobytes.
+        </p>
+      </article>
+    </div>
+  </body>
+</html>

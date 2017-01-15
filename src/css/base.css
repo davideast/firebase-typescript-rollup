@@ -1,0 +1,14 @@
+body {
+  font-family: var(--fir-font-article);
+  margin: 0;
+}
+h1 {
+  font-size: 3em;
+}
+h1, h2, h3 {
+  font-family: var(--fir-font-header);
+  margin: 0;
+}
+article {
+  font-size: 22px;
+}
