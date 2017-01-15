@@ -1,5 +1,4 @@
 const fs = require('fs');
-const insertCss = require('insert-css');
 const STYLE_TAG = '<style>';
 const CLOSED_STYLE_TAG = '</style>';
 const EMBED_REPLACE_TOKEN = /<!-- ::EMBEDDED-STYLES:: -->/;
