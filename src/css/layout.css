@@ -7,9 +7,13 @@
 }
 
 .fir-grid p, section, article {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .fir-grid section h3 + p, .fir-article-content-top {
-  margin: 0px 0px 40px 0px;
+  margin: 0px 0px 20px 0px;
+}
+
+.fir-article-content-first-line {
+  font-size: 24px;
 }

@@ -1,8 +1,15 @@
 :root {
-  --fir-font-article: "adobe-garamond-pro",sans-serif;
+  --fir-font-article: "adobe-garamond-pro", sans-serif;
   --fir-font-header: "foco", serif;
   --fir-blue-twitter-alpha: rgba(85,172,238, 0.6);
   --fir-color-grey: rgba(0,0,0, 0.40);
-  --prism-bg: #303030;
-  --prism-text: #f0f0f0;
+  --prism-bg: #28323F;
+  --prism-text: #f2f3f7;
+  --prism-comment: #7389a6;
+  --prism-keyword: #66d9ef;
+  --prism-string: #e6db70;
+  --prism-number: #fec938;
+  --prism-function: #66d9ef;
+  --prism-punctuation: #d7dddb;
+  --prism-regex: #f92772;
 }

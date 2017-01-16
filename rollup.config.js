@@ -13,9 +13,7 @@ rollup.rollup({
       main: true
     }),
     commonjs({
-      include: 'node_modules/**',
-      ignoreGlobal: false,
-      sourceMap: false,
+      include: 'node_modules/**'
     })
   ]
 }).then((bundle) => {

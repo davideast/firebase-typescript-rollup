@@ -11,7 +11,7 @@
   function
 */
 
-.fir-codebox {
+/*.fir-codebox {
   background: var(--prism-bg);
   color: var(--prism-text);
   padding: 20px;
@@ -19,4 +19,4 @@
 
 .fir-codebox code {
   font-family: "hack", Consolas, Monaco, monospace;
-}
+}*/

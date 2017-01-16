@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Firebase & Rollup</title>
+    <title>Firebase, TypeScript, & Rollup</title>
     <script src="https://use.typekit.net/sfq4ecl.js"></script>
     <script>try{Typekit.load({ async: true }); }catch(e){}</script>
 
@@ -32,47 +32,71 @@
 
       <article class="fir-article">
         <section class="fir-article-content">
-          <h1>Firebase & Rollup</h1>
+          <h1>Firebase, TypeScript, & Rollup</h1>
           <!--
-            Highlights section
+            tl;dr section
             - Topics covered
             - Avg minute read
             - Github/Demo
           -->
+          <p class="fir-article-content-first-line">
+            What does the statement below do?
+          </p>
+          <pre class="fir-codebox language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> firebase <span class="token keyword">from</span> <span class="token string">'firebase'</span><span class="token punctuation">;</span></code></pre>
           <p>
-            I've worked at Firebase since April 2014. During that time I've been
-            fortunate to see this small service that was <em>"just used for toy apps"</em>
-            turn into something used by Fortune 500 companies around the world.
+            It includes every feature of Firebase by default. Which is
+            as of version 3.6.6 is <strong>96.7kb</strong>. This many not seem
+            like a lot to you, but check out how it loads over "Regular 3G"
+            in the Network panel tab in Chrome. You'll see that on average it
+            loads in about <strong>1.1 seconds</strong>.
           </p>
           <p>
-            Firebase gives developers the ability to develop
-            <strong>without a server</strong>. You can synchronize data in
-            realtime with the Firebase Database, authenticate users to social
-            media sites with Firebase Authentication, upload and serve binary
-            files with Firebase Storage, host static content with Firebase
-            Hosting, and most recently, send web push notifications with
-            Firebase Cloud Messaging.
-          </p>
-          <p>
-            However, these features do not come without a cost. Each feature is
-            a complex snowflake that comes with a cost in kilobytes.
-          </p>
-          <p>
-            The Firebase JavaScript SDK is a total of <strong>92kb</strong>. This
-            is a lot of JavaScript to include all at once. Fortunately, the library
-            is designed for modular importing.
+            Fortunately, it doesn't have to be this way. With the help of
+            TypeScript and Rollup, we can easily import only the features we
+            need.
           </p>
         </section>
         <section class="fir-article-content">
-          <h3>Rollup</h3>
+          <h3>Workflow</h3>
           <p class="fir-article-content-top">
-            Rollup makes bundling JavaScript real easy.
+            Before you get started, it's wise to know the overall system.
           </p>
-<pre class="fir-codebox">
-<code class="language-javascript">var i = 0;
-var k = 1;</code></pre>
+          <ol>
+            <li>Import only the Firebase features you need with ES2015 syntax.</li>
+            <li>Compile to ES2015 with TypeScript</li>
+            <li>Bundle into a smaller build with Rollup.</li>
+          </ol>
+        </section>
+        <section class="fir-article-content">
+          <h3>Why TypeScript</h3>
+          <p class="fir-article-content-top">
+            You might be thinking, <em>"TypeScript is a static type checker.
+            How can it make my builds smaller?"</em> And the answer is:
+            <strong>it can't</strong>. TypeScript lets you use ES2015 module
+            syntax which Rollup uses bunch the needed parts into the final
+            bundle.
+          </p>
+        </section>
+        <section class="fir-article-content">
+          <h3>The first thing to do</h3>
+          <p class="fir-article-content-top">
+            The first step is easy, change the Firebase import to target <code>"firebase/app"</code>.
+          </p>
+
+          <pre class="fir-codebox language-javascript"><code class=" language-javascript">import * as firebase from 'firebase/app';</code></pre>
+
+
+          <p>
+            This does two great things. First, it brings in the typings for the
+            always excellent TypeScript code complete. Second, it imports only
+            the <code>firebase.App</code> namespace, which is a small container
+            that holds all Firebase features.
+          </p>
+
         </section>
       </article>
     </div>
+
+    <script src="prism.js"></script>
   </body>
 </html>

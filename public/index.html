@@ -2,134 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Firebase & Rollup</title>
+    <title>Firebase, TypeScript, & Rollup</title>
     <script src="https://use.typekit.net/sfq4ecl.js"></script>
     <script>try{Typekit.load({ async: true }); }catch(e){}</script>
 
     <style>
-:root {
-  --fir-font-article: "adobe-garamond-pro",sans-serif;
-  --fir-font-header: "foco", serif;
-  --fir-blue-twitter-alpha: rgba(85,172,238, 0.6);
-  --fir-color-grey: rgba(0,0,0, 0.40);
-  --prism-bg: #303030;
-  --prism-text: #f0f0f0;
-}
-
-body {
-  font-family: var(--fir-font-article);
-  margin: 0;
-}
-h1 {
-  font-size: 6vh;
-}
-h1, h2, h3 {
-  font-family: var(--fir-font-header);
-  margin: 0;
-}
-article {
-  font-size: 24px;
-  line-height: 48px;
-}
-.fir-grid {
-  max-width: 740px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  padding: 0 20px;
-}
-
-.fir-grid p, section, article {
-  margin: 40px 0;
-}
-
-.fir-grid section h3 + p, .fir-article-content-top {
-  margin: 0px 0px 40px 0px;
-}
-
-/*.wf-loading {
-  visibility: hidden
-}*/
-.visually-hidden {
-  display: none;
-}
-.fir-clickcircle {
-  height: 80px;
-  width: 80px;
-  border-radius: 100px;
-  cursor: pointer;
-}
-.fir-image-figure {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  position: relative;
-  text-decoration: none;
-}
-
-.fir-image-figure .caption, .fir-image-figure figcaption {
-  padding-left: 15px;
-}
-
-.fir-image-figure .fig-author-figure-title {
-  color: var(--fir-color-grey);
-  font-family: var(--fir-font-header);
-  margin-top: 2px;
-}
-
-.fir-imageover {
-  position: relative;
-  display: flex;
-}
-
-.fir-image-figure:hover .fir-imageover-color, .fir-imagecover:hover .fir-imageover-color {
-  background-color: var(--fir-blue-twitter-alpha);
-}
-
-.fir-image-figure:hover .fir-imageover-image, .fir-imagecover:hover .fir-imageover-image {
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.fir-imageover-color {
-  height: 80px;
-  width: 80px;
-  position: absolute;
-  background: transparent;
-  background-image: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: background .3s ease-in-out;
-}
-
-.fir-imageover-image {
-  position: absolute;
-  top: 0;
-  opacity: 0;
-}
-/**
-  background
-  default text
-	selection
-  keywords
-  operators
-  comments
-  punctuation
-  numbers
-  char,string
-  function
-*/
-
-.fir-codebox {
-  background: var(--prism-bg);
-  color: var(--prism-text);
-  padding: 20px;
-}
-
-.fir-codebox code {
-  font-family: "hack", Consolas, Monaco, monospace;
-}
+:root{--fir-font-article:"adobe-garamond-pro",sans-serif;--fir-font-header:"foco",serif;--fir-blue-twitter-alpha:rgba(85,172,238,.6);--fir-color-grey:rgba(0,0,0,.4);--prism-bg:#28323f;--prism-text:#f2f3f7;--prism-comment:#7389a6;--prism-keyword:#66d9ef;--prism-string:#e6db70;--prism-number:#fec938;--prism-function:#66d9ef;--prism-punctuation:#d7dddb;--prism-regex:#f92772}body{font-family:var(--fir-font-article);margin:0}h1{font-size:2.3em}h1,h2,h3{font-family:var(--fir-font-header);margin:0}article{font-size:20px;line-height:40px}.fir-grid{max-width:740px;margin-left:auto;margin-right:auto;margin-top:40px;padding:0 20px}.fir-grid p,article,section{margin:20px 0}.fir-article-content-top,.fir-grid section h3+p{margin:0 0 20px}.fir-article-content-first-line{font-size:24px}html.wf-loading p{font-family:'Times New Roman',Times,serif;font-size:19px}html.wf-loading .fig-author-figure-title{font-family:Helvetica,sans-serif}.fir-clickcircle{height:80px;width:80px;border-radius:100px;cursor:pointer}.fir-image-figure{align-items:center;margin:0 0 40px;text-decoration:none}.fir-image-figure .caption,.fir-image-figure figcaption{padding-left:15px}.fir-image-figure .fig-author-figure-title{color:var(--fir-color-grey);font-family:var(--fir-font-header);margin-top:2px}.fir-image-figure,.fir-imageover{position:relative;display:flex}.fir-image-figure:hover .fir-imageover-color,.fir-imagecover:hover .fir-imageover-color{background-color:var(--fir-blue-twitter-alpha)}.fir-image-figure:hover .fir-imageover-image,.fir-imagecover:hover .fir-imageover-image{opacity:.5;transition:opacity .3s ease-in-out}.fir-imageover-color{height:80px;width:80px;position:absolute;background:0 0;background-image:none;border-radius:100px;cursor:pointer;transition:background .3s ease-in-out}.fir-imageover-image{position:absolute;top:0;opacity:0}code[class*=language-],pre[class*=language-]{color:var(--prism-text);background:0 0;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:var(--prism-bg)}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:var(--prism-comment)}.token.punctuation{color:var(--prism-punctuation)}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:var(--prism-number)}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:var(--prism-string)}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:var(--prism-text)}.token.atrule,.token.attr-value,.token.keyword{color:var(--prism-keyword)}.token.function{color:var(--prism-function)}.token.important,.token.regex,.token.variable{color:var(--prism-regex)}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
 </style>
 
   </head>
@@ -156,47 +34,71 @@ article {
 
       <article class="fir-article">
         <section class="fir-article-content">
-          <h1>Firebase & Rollup</h1>
+          <h1>Firebase, TypeScript, & Rollup</h1>
           <!--
-            Highlights section
+            tl;dr section
             - Topics covered
             - Avg minute read
             - Github/Demo
           -->
+          <p class="fir-article-content-first-line">
+            What does the statement below do?
+          </p>
+          <pre class="fir-codebox language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> firebase <span class="token keyword">from</span> <span class="token string">'firebase'</span><span class="token punctuation">;</span></code></pre>
           <p>
-            I've worked at Firebase since April 2014. During that time I've been
-            fortunate to see this small service that was <em>"just used for toy apps"</em>
-            turn into something used by Fortune 500 companies around the world.
+            It includes every feature of Firebase by default. Which is
+            as of version 3.6.6 is <strong>96.7kb</strong>. This many not seem
+            like a lot to you, but just check out how it loads over "Regular 3G"
+            in the Network panel tab in Chrome. You'll see that on average it
+            loads in about <strong>1.1 seconds</strong>.
           </p>
           <p>
-            Firebase gives developers the ability to develop
-            <strong>without a server</strong>. You can synchronize data in
-            realtime with the Firebase Database, authenticate users to social
-            media sites with Firebase Authentication, upload and serve binary
-            files with Firebase Storage, host static content with Firebase
-            Hosting, and most recently, send web push notifications with
-            Firebase Cloud Messaging.
-          </p>
-          <p>
-            However, these features do not come without a cost. Each feature is
-            a complex snowflake that comes with a cost in kilobytes.
-          </p>
-          <p>
-            The Firebase JavaScript SDK is a total of <strong>92kb</strong>. This
-            is a lot of JavaScript to include all at once. Fortunately, the library
-            is designed for modular importing.
+            Fortunately, it doesn't have to be this way. With the help of
+            TypeScript and Rollup, we can easily import only the features we
+            need.
           </p>
         </section>
         <section class="fir-article-content">
-          <h3>Rollup</h3>
+          <h3>Workflow</h3>
           <p class="fir-article-content-top">
-            Rollup makes bundling JavaScript real easy.
+            Before you get started, it's wise to know the overall system.
           </p>
-<pre class="fir-codebox">
-<code class="language-javascript">var i = 0;
-var k = 1;</code></pre>
+          <ol>
+            <li>Import only the Firebase features you need with ES2015 syntax.</li>
+            <li>Compile to ES2015 with TypeScript</li>
+            <li>Bundle into a smaller build with Rollup.</li>
+          </ol>
+        </section>
+        <section class="fir-article-content">
+          <h3>Why TypeScript</h3>
+          <p class="fir-article-content-top">
+            You might be thinking, <em>"TypeScript is a static type checker.
+            How can it make my builds smaller?"</em> And the answer is:
+            <strong>it can't</strong>. TypeScript lets you use ES2015 module
+            syntax which Rollup uses bunch the needed parts into the final
+            bundle.
+          </p>
+        </section>
+        <section class="fir-article-content">
+          <h3>The first thing to do</h3>
+          <p class="fir-article-content-top">
+            The first step is easy, change the Firebase import to target <code>"firebase/app"</code>.
+          </p>
+
+          <pre class="fir-codebox language-javascript"><code class=" language-javascript">import * as firebase from 'firebase/app';</code></pre>
+
+
+          <p>
+            This does two great things. First, it brings in the typings for the
+            always excellent TypeScript code complete. Second, it imports only
+            the <code>firebase.App</code> namespace, which is a small container
+            that holds all Firebase features.
+          </p>
+
         </section>
       </article>
     </div>
+
+    <script src="prism.js"></script>
   </body>
 </html>
