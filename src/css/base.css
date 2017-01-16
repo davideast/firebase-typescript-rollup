@@ -13,3 +13,12 @@ article {
   font-size: 20px;
   line-height: 40px;
 }
+footer {
+  display: flex;
+  font-family: foco;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0 60px 0;
+  font-size: 18px;
+}

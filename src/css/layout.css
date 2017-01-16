@@ -6,8 +6,12 @@
   padding: 0 20px;
 }
 
-.fir-grid p, section, article {
+.fir-grid p, section {
   margin: 20px 0;
+}
+
+.fir-grid article {
+  margin: 20px 0 40px 0;
 }
 
 .fir-grid section h3 + p, .fir-article-content-top {

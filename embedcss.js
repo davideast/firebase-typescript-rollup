@@ -31,8 +31,8 @@ const cssBytes = cssCombined.length;
 const compressedBytes = gzipSize.sync(compressedCss);
 const htmlBytes = gzipSize.sync(result);
 
-console.log(`CSS  : ${psize(cssBytes, true)} non gzipped`);
-console.log(`CSS  : ${psize(compressedBytes, true)} gzipped`);
+console.log(`CSS        : ${psize(cssBytes, true)} non gzipped`);
+console.log(`CSS        : ${psize(compressedBytes, true)} gzipped`);
 console.log(`--------------------------------`);
-console.log(`HTML : ${psize(htmlBytes, true)} gzipped`);
+console.log(`HTML + CSS : ${psize(htmlBytes, true)} gzipped`);
 

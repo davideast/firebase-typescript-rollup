@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Firebase, TypeScript, & Rollup</title>
+    <title>Firebase & Rollup</title>
     <script src="https://use.typekit.net/sfq4ecl.js"></script>
     <script>try{Typekit.load({ async: true }); }catch(e){}</script>
 
     <style>
-:root{--fir-font-article:"adobe-garamond-pro",sans-serif;--fir-font-header:"foco",serif;--fir-blue-twitter-alpha:rgba(85,172,238,.6);--fir-color-grey:rgba(0,0,0,.4);--prism-bg:#28323f;--prism-text:#f2f3f7;--prism-comment:#7389a6;--prism-keyword:#66d9ef;--prism-string:#e6db70;--prism-number:#fec938;--prism-function:#66d9ef;--prism-punctuation:#d7dddb;--prism-regex:#f92772}body{font-family:var(--fir-font-article);margin:0}h1{font-size:2.3em}h1,h2,h3{font-family:var(--fir-font-header);margin:0}article{font-size:20px;line-height:40px}.fir-grid{max-width:740px;margin-left:auto;margin-right:auto;margin-top:40px;padding:0 20px}.fir-grid p,article,section{margin:20px 0}.fir-article-content-top,.fir-grid section h3+p{margin:0 0 20px}.fir-article-content-first-line{font-size:24px}html.wf-loading p{font-family:'Times New Roman',Times,serif;font-size:19px}html.wf-loading .fig-author-figure-title{font-family:Helvetica,sans-serif}.fir-clickcircle{height:80px;width:80px;border-radius:100px;cursor:pointer}.fir-image-figure{align-items:center;margin:0 0 40px;text-decoration:none}.fir-image-figure .caption,.fir-image-figure figcaption{padding-left:15px}.fir-image-figure .fig-author-figure-title{color:var(--fir-color-grey);font-family:var(--fir-font-header);margin-top:2px}.fir-image-figure,.fir-imageover{position:relative;display:flex}.fir-image-figure:hover .fir-imageover-color,.fir-imagecover:hover .fir-imageover-color{background-color:var(--fir-blue-twitter-alpha)}.fir-image-figure:hover .fir-imageover-image,.fir-imagecover:hover .fir-imageover-image{opacity:.5;transition:opacity .3s ease-in-out}.fir-imageover-color{height:80px;width:80px;position:absolute;background:0 0;background-image:none;border-radius:100px;cursor:pointer;transition:background .3s ease-in-out}.fir-imageover-image{position:absolute;top:0;opacity:0}code[class*=language-],pre[class*=language-]{color:var(--prism-text);background:0 0;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:var(--prism-bg)}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:var(--prism-comment)}.token.punctuation{color:var(--prism-punctuation)}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:var(--prism-number)}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:var(--prism-string)}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:var(--prism-text)}.token.atrule,.token.attr-value,.token.keyword{color:var(--prism-keyword)}.token.function{color:var(--prism-function)}.token.important,.token.regex,.token.variable{color:var(--prism-regex)}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+:root{--fir-font-article:"adobe-garamond-pro",sans-serif;--fir-font-header:"foco",serif;--fir-blue-twitter-alpha:rgba(85,172,238,.6);--fir-color-grey:rgba(0,0,0,.4);--prism-bg:#28323f;--prism-text:#f2f3f7;--prism-comment:#7389a6;--prism-keyword:#66d9ef;--prism-string:#e6db70;--prism-number:#fec938;--prism-function:#66d9ef;--prism-punctuation:#d7dddb;--prism-regex:#f92772}body{font-family:var(--fir-font-article);margin:0}h1{font-size:2.3em}h1,h2,h3{font-family:var(--fir-font-header);margin:0}article{font-size:20px;line-height:40px}footer{display:flex;font-family:foco;flex-direction:column;align-items:center;justify-content:center;padding:40px 0 60px;font-size:18px}.fir-grid{max-width:740px;margin-left:auto;margin-right:auto;margin-top:40px;padding:0 20px}.fir-grid p,section{margin:20px 0}.fir-grid article{margin:20px 0 40px}.fir-article-content-top,.fir-grid section h3+p{margin:0 0 20px}.fir-article-content-first-line{font-size:24px}html.wf-loading p{font-family:'Times New Roman',Times,serif;font-size:19px}html.wf-loading .fig-author-figure-title{font-family:Helvetica,sans-serif}.fir-clickcircle{height:80px;width:80px;border-radius:100px;cursor:pointer}.fir-image-figure{align-items:center;margin:0 0 40px;text-decoration:none}.fir-image-figure .caption,.fir-image-figure figcaption{padding-left:15px}.fir-image-figure .fig-author-figure-title{color:var(--fir-color-grey);font-family:var(--fir-font-header);margin-top:2px}.fir-image-figure,.fir-imageover{position:relative;display:flex}.fir-image-figure:hover .fir-imageover-color,.fir-imagecover:hover .fir-imageover-color{background-color:var(--fir-blue-twitter-alpha)}.fir-image-figure:hover .fir-imageover-image,.fir-imagecover:hover .fir-imageover-image{opacity:.5;transition:opacity .3s ease-in-out}.fir-imageover-color{height:80px;width:80px;position:absolute;background:0 0;background-image:none;border-radius:100px;cursor:pointer;transition:background .3s ease-in-out}.fir-imageover-image{position:absolute;top:0;opacity:0}code[class*=language-],pre[class*=language-]{color:var(--prism-text);font-size:16px;background:0 0;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:var(--prism-bg)}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:var(--prism-comment)}.token.punctuation{color:var(--prism-punctuation)}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:var(--prism-number)}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:var(--prism-string)}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:var(--prism-text)}.token.atrule,.token.attr-value,.token.keyword{color:var(--prism-keyword)}.token.function{color:var(--prism-function)}.token.important,.token.regex,.token.variable{color:var(--prism-regex)}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
 </style>
 
   </head>
@@ -26,7 +26,7 @@
           <figcaption>
             <div class="fig-author-figure-title">David East</div>
             <div class="fig-author-figure-title">Engineer at Google on Firebase.</div>
-            <div class="fig-author-figure-title">Jan. 16th, 2017</div>
+            <div class="fig-author-figure-title">Jan. 16th, 2017 &#8212; 5m read</div>
           </figcaption>
         </figure>
 
@@ -34,7 +34,7 @@
 
       <article class="fir-article">
         <section class="fir-article-content">
-          <h1>Firebase, TypeScript, & Rollup</h1>
+          <h1>Firebase & Rollup</h1>
           <!--
             tl;dr section
             - Topics covered
@@ -42,62 +42,159 @@
             - Github/Demo
           -->
           <p class="fir-article-content-first-line">
-            What does the statement below do?
+            I have a new best practice for importing Firebase:
           </p>
+
+          <h3>Never do this again</h3>
           <pre class="fir-codebox language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> firebase <span class="token keyword">from</span> <span class="token string">'firebase'</span><span class="token punctuation">;</span></code></pre>
           <p>
-            It includes every feature of Firebase by default. Which is
-            as of version 3.6.6 is <strong>96.7kb</strong>. This many not seem
-            like a lot to you, but just check out how it loads over "Regular 3G"
-            in the Network panel tab in Chrome. You'll see that on average it
-            loads in about <strong>1.1 seconds</strong>.
+            This one-liner includes every feature of Firebase by
+            default. Which is as of version 3.6.6 is <strong>96.7kb</strong>.
+            This single asset on average loads in <strong>1.1 seconds</strong>
+            on "Regular 3G" in the Network panel in Chrome.
           </p>
           <p>
-            Fortunately, it doesn't have to be this way. With the help of
-            TypeScript and Rollup, we can easily import only the features we
-            need.
+            Fortunately, it doesn't have to be this way. With the help of Rollup,
+            we can easily import only the features we need.
           </p>
         </section>
         <section class="fir-article-content">
-          <h3>Workflow</h3>
-          <p class="fir-article-content-top">
-            Before you get started, it's wise to know the overall system.
-          </p>
-          <ol>
-            <li>Import only the Firebase features you need with ES2015 syntax.</li>
-            <li>Compile to ES2015 with TypeScript</li>
-            <li>Bundle into a smaller build with Rollup.</li>
-          </ol>
-        </section>
-        <section class="fir-article-content">
-          <h3>Why TypeScript</h3>
-          <p class="fir-article-content-top">
-            You might be thinking, <em>"TypeScript is a static type checker.
-            How can it make my builds smaller?"</em> And the answer is:
-            <strong>it can't</strong>. TypeScript lets you use ES2015 module
-            syntax which Rollup uses bunch the needed parts into the final
-            bundle.
-          </p>
-        </section>
-        <section class="fir-article-content">
-          <h3>The first thing to do</h3>
-          <p class="fir-article-content-top">
-            The first step is easy, change the Firebase import to target <code>"firebase/app"</code>.
-          </p>
-
+          <h3>Do this instead</h3>
           <pre class="fir-codebox language-javascript"><code class=" language-javascript">import * as firebase from 'firebase/app';</code></pre>
 
-
           <p>
-            This does two great things. First, it brings in the typings for the
-            always excellent TypeScript code complete. Second, it imports only
-            the <code>firebase.App</code> namespace, which is a small container
-            that holds all Firebase features.
+            This statement imports only the <code>firebase.app</code> code,
+            which is a small container that houses all Firebase features. It's
+            <strong>6.1kb</strong> and on "Regular 3G" loads in around 180ms.
           </p>
 
         </section>
+        <section class="fir-article-content">
+          <h3>Naked import the features you need</h3>
+          <pre class="fir-codebox language-javascript"><code class="language-javascript">import * as firebase from 'firebase/app';
+import 'firebase/storage';
+// your code goes below
+// make sure to use firebase.initializeApp()
+</code></pre>
+        </section>
+
+        <section class="fir-article-content">
+          <h3>Install Rollup</h3>
+          <p class="fir-article-content-top">
+            Rollup uses ES2015 modules to tree shake unneeded code from your final bundle.
+          </p>
+          <pre class="fir-codebox"><code class="language-javascript">npm i --save-dev rollup</code></pre>
+        </section>
+
+        <section class="fir-article-content">
+          <h3>Resolving the Firebase node module</h3>
+
+          <p>
+            Rollup works only with ES2015 modules. This isn't
+            going to cut it with the commonjs Firebase node module.
+          </p>
+          <p>
+            Fortunately, there are two excellent Rollup plugins to help. There's
+            <code>rollup-plugin-node-resolve</code> which tells Rollup to look
+            in the <code>node_modules</code> folder, and
+            <code>rollup-plugin-commonjs</code> which converts commonjs modules
+            to ES2015 modules.
+          </p>
+          <p>
+            Install these modules, and then you'll write your config.
+          </p>
+          <pre class="fir-codebox"><code class="language-javascript">npm i --save-dev rollup-plugin-node-resolve rollup-plugin-commonjs</code></pre>
+        </section>
+
+        <section class="fir-article-content">
+          <h3>Rollup Config</h3>
+          <p class="fir-article-content-top">
+            Declare the plugins, and set your entry file, and output file.
+          </p>
+
+          <pre><code class="language-javascript">const rollup = require('rollup');
+const fs = require('fs');
+const commonjs = require('rollup-plugin-commonjs');
+const nodeResolve = require('rollup-plugin-node-resolve');
+
+rollup.rollup({
+  entry: 'dist/index.js',
+  plugins: [
+    nodeResolve({
+      jsnext: true,
+      main: true
+    }),
+    commonjs({
+      include: 'node_modules/**'
+    })
+  ]
+}).then((bundle) => {
+  const result = bundle.generate({
+    format: 'umd',
+    moduleName: 'app'
+  });
+
+  return bundle.write({
+    format: 'umd',
+    dest: 'public/index.js',
+    moduleName: 'app'
+  });
+});</code></pre>
+
+        </section>
+
+        <section class="fir-article-content">
+          <h3>Pro-tip: Measure the size</h3>
+          <p class="fir-article-content-top">
+            There's two nifty node modules you can use to log the gzipped size
+            of the bundle after the build: <code>gzip-size</code> and
+            <code>pretty-size</code>.
+          </p>
+
+          <pre class="fir-codebox"><code class="language-javascript">npm i --save-dev gzip-size pretty-size</code></pre>
+
+          <p>
+            Require them at the top of the config and then create another chain
+            onto the promise.
+          </p>
+
+          <pre><code class="language-javascript"> // continuing the snippet above
+  return bundle.write({
+    format: 'umd',
+    dest: 'public/index.js',
+    moduleName: 'app'
+  });
+}).then(_ => {
+  const file = fs.readFileSync('public/index.js');
+  const bytes = gzipSize.sync(file);
+  console.log(`firebase.app & firebase.storage: ${psize(bytes, true)} gzipped`);
+});</code></pre>
+
+        </section>
+
+        <section class="fir-article-content">
+          <h3>Github sample repo</h3>
+          <p class="fir-article-content-top">
+            Check out <a href="https://github.com/davideast/firebase-typescript-rollup">
+            this github repo for a sample</a>. It uses TypeScript, but the
+            idea is the same.
+          </p>
+        </section>
+
       </article>
+
     </div>
+
+    <footer>
+      <div>
+        &#10803; David East
+      </div>
+      <div>
+        <a href="https://twitter.com/_davideast">Twitter</a>
+        &#8212;
+        <a href="https://github.com/davideast">Github</a>
+      </div>
+    </footer>
 
     <script src="prism.js"></script>
   </body>
