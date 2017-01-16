@@ -1,6 +1,6 @@
 :root {
-  --fir-font-article: "adobe-garamond-pro", sans-serif;
-  --fir-font-header: "foco", serif;
+  --fir-font-article: "adobe-garamond-pro", "Times New Roman", Times;
+  --fir-font-header: "foco", Helvetica;
   --fir-blue-twitter-alpha: rgba(85,172,238, 0.6);
   --fir-color-grey: rgba(0,0,0, 0.40);
   --prism-bg: #28323F;

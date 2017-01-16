@@ -10,6 +10,10 @@ h1, h2, h3 {
   margin: 0;
 }
 article {
+  font-size: 19px;
+  line-height: 40px;
+}
+html.wf-active article {
   font-size: 20px;
   line-height: 40px;
 }
