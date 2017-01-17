@@ -91,10 +91,13 @@ import 'firebase/storage';
           </p>
           <p>
             Fortunately, there are two excellent Rollup plugins to help. There's
-            <code>rollup-plugin-node-resolve</code> which tells Rollup to look
-            in the <code>node_modules</code> folder, and
-            <code>rollup-plugin-commonjs</code> which converts commonjs modules
-            to ES2015 modules.
+            <a href="https://github.com/rollup/rollup-plugin-node-resolve">
+              <code>rollup-plugin-node-resolve</code>
+            </a>
+            which tells Rollup to look in the <code>node_modules</code> folder, and
+            <a href="https://github.com/rollup/rollup-plugin-commonjs">
+              <code>rollup-plugin-commonjs</code>
+            <a/> which converts commonjs modules to ES2015 modules.
           </p>
           <p>
             Install these modules, and then you'll write your config.
@@ -167,6 +170,12 @@ rollup.rollup({
 });</code></pre>
 
         </section>
+
+        <p>
+          Now you can keep track of your bundle size as you build.
+        </p>
+
+        <pre class="fir-codebox"><code class="language-javascript">firebase.app & firebase.storage: 15.7 kB gzipped</code></pre>
 
         <section class="fir-article-content">
           <h3>Github sample repo</h3>
