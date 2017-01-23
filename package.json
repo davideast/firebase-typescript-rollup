@@ -16,7 +16,7 @@
   "author": "David East",
   "license": "MIT",
   "dependencies": {
-    "firebase": "https://www.gstatic.com/firebasejs/staging/3.6.6-rc.2/firebase.tgz"
+    "firebase": "^3.6.6"
   },
   "devDependencies": {
     "csso": "^2.3.1",
